@@ -8,11 +8,9 @@ except:
     from urlparse import urlparse
 
 
-# TODO: Since so much dev is going on, we've made debug=True the default. This
-# needs to change, probably soon.
 def request(request_type, resource_url, data=None, api_key=None, files=None,
-            base_url='https://api.evrythng.com', accept=False, debug=True, custom_query_params=None,
-            pageNumber=None, perPage=None, timeout=30):
+            base_url='https://api.evrythng.com', accept=False, debug=False,
+            custom_query_params=None, pageNumber=None, perPage=None, timeout=30):
     """Send a request to the Evrythng API."""
     if custom_query_params:
         if type(custom_query_params) != dict:
