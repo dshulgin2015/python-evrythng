@@ -9,9 +9,12 @@ except:
 
 
 def request(request_type, resource_url, data=None, api_key=None, files=None,
-            base_url='https://api.evrythng.com', accept=False, debug=False,
+            base_url='https://api.evrythng.com', accept=False, debug=None,
             custom_query_params=None, pageNumber=None, perPage=None, timeout=30):
     """Send a request to the Evrythng API."""
+    if debug is None:
+        debug = os.getenv('PYEVT_DEBUG', '0') == '1'
+
     if custom_query_params:
         if type(custom_query_params) != dict:
             raise ValueError('custom_query_params must be a dict mapping keys to values.')
