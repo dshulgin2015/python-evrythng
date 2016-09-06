@@ -1,15 +1,5 @@
-from evrythng.entities import action_types
 from evrythng.entities import actions
-from evrythng.entities import applications
-from evrythng.entities import application_users
-from evrythng.entities import collections_
-from evrythng.entities import locations
-from evrythng.entities import places
 from evrythng.entities import products
-from evrythng.entities import projects
-from evrythng.entities import properties
-from evrythng.entities import thngs
-import json
 import unittest
 
 
