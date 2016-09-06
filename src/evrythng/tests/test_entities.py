@@ -1,6 +1,7 @@
+import unittest
+
 from evrythng.entities import actions
 from evrythng.entities import products
-import unittest
 
 
 class TestProductMethods(unittest.TestCase):
@@ -10,8 +11,8 @@ class TestProductMethods(unittest.TestCase):
     create_product +
     list_products
     read_product +
-    update_product 
-    delete_product 
+    update_product
+    delete_product
 
     on a test EVT account by Dmitry Shulgin.
 
@@ -37,7 +38,8 @@ class TestProductMethods(unittest.TestCase):
         products.delete_product(product_id=str(product_id))
 
     def test3_update(self):
-        ''' creating test product, update it and check, if product description is equal to what we expect'''
+        ''' creating test product, update it and check,
+        if product description is equal to what we expect'''
 
         product_id = products.create_product(
             name='test_creating_prod_GooeeIOT').json()['id']
@@ -59,8 +61,7 @@ class TestProductMethods(unittest.TestCase):
         status_code = products.delete_product(
             product_id=str(product_id)).status_code
         self.assertEqual(status_code, 200)
-        self.assertEqual(len(products.list_products(
-            api_key=API_KEY).json()), count - 1)
+        self.assertEqual(len(products.list_products().json()), count - 1)
 
 
 class TestActionMethods(unittest.TestCase):
