@@ -17,6 +17,7 @@ with open('config.json') as configs:
 
 API_KEY = data['parameters']['API_KEY']
 
+
 class TestProductMethods(unittest.TestCase):
 
     '''testing the following methods:
@@ -32,6 +33,8 @@ class TestProductMethods(unittest.TestCase):
     '''
 
     def test1_creation(self):
+        ''' creating test product and check if existing name is equal to test str'''
+
         product_id = products.create_product(
             name='test_creating_prod_GooeeIOT', api_key=API_KEY).json()['id']
         product_name = products.read_product(product_id=str(
@@ -40,6 +43,8 @@ class TestProductMethods(unittest.TestCase):
         products.delete_product(product_id=str(product_id), api_key=API_KEY)
 
     def test2_list(self):
+        ''' creating test product and check if list's length is equal to 1'''
+
         product_id = products.create_product(
             name='test_creating_prod_GooeeIOT', api_key=API_KEY).json()['id']
         self.assertEqual(
@@ -47,6 +52,8 @@ class TestProductMethods(unittest.TestCase):
         products.delete_product(product_id=str(product_id), api_key=API_KEY)
 
     def test3_update(self):
+        ''' creating test product, update it and check, if product description is equal to what we expect'''
+
         product_id = products.create_product(
             name='test_creating_prod_GooeeIOT', api_key=API_KEY).json()['id']
         products.update_product(product_id=str(
@@ -57,6 +64,9 @@ class TestProductMethods(unittest.TestCase):
         products.delete_product(product_id=str(product_id), api_key=API_KEY)
 
     def test4_delete(self):
+        ''' creating test product and check, if status code of deletion == 200 and
+         length of list is equal to what we expect'''
+
         count = len(products.list_products(api_key=API_KEY).json())
         product_id = products.create_product(
             name='test_creating_prod_GooeeIOT', api_key=API_KEY).json()['id']
@@ -81,6 +91,7 @@ class TestActionMethods(unittest.TestCase):
     '''
 
     def test1_(self):
+        ''' creating test product and check, if status code of deletion == 200'''
 
         # creating necessary objects required for making test action: thng ||
         # product || shortID
@@ -99,6 +110,8 @@ class TestActionMethods(unittest.TestCase):
         products.delete_product(product_id=str(product_id), api_key=API_KEY)
 
     def test2_list_actions(self):
+        ''' creating test product and check if list's length is decreased'''
+
         # save number of actions before we create new one.
         count = len(actions.list_actions(
             type_='scans', api_key=API_KEY).json())
