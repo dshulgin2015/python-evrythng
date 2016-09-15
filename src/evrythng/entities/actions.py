@@ -4,8 +4,6 @@ https://dashboard.evrythng.com/documentation/api/actions
 """
 from evrythng import assertions, utils
 
-api_key = "FSz26K5a4HlImg7hX4i1BhEE6B5JieAKDJKijzAdX2a3S8AjyF1H406qbcIxT6vHTlqe2pORLc9Ts8TJ"
-
 field_specs = {
     'datatypes': {
         'type': 'str',
