@@ -33,14 +33,16 @@ class TestProductMethods(unittest.TestCase):
 
     def test_list(self):
         """creating test product and
-         check if list's length is equal to 1"""
+         check if list's length is equal to 1
+         """
 
         self.assertEqual(
             len(products.list_products(api_key=API_KEY).json()), 1)
 
     def test_update(self):
         """creating test product, update it and check,
-        if product description is equal to what we expect"""
+        if product description is equal to what we expect
+        """
 
         products.update_product(product_id=str(
             self.product_id), description='test_GooeeIOT_description', api_key=API_KEY)
@@ -73,7 +75,8 @@ class TestActionMethods(unittest.TestCase):
 
     def test_list_actions(self):
         """creating test product and
-        check if list's length is decreased"""
+        check if list's length is decreased
+        """
 
         self.assertEqual(len(actions.list_actions(
             type_='scans', api_key=API_KEY).json()), 1)
