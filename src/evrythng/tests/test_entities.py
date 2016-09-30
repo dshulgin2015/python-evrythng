@@ -1,5 +1,6 @@
 import unittest
 import os
+
 from evrythng.entities import actions
 from evrythng.entities import products
 
@@ -22,7 +23,7 @@ class TestProductMethods(unittest.TestCase):
         products.delete_product(
             product_id=str(cls.product_id), api_key=API_KEY)
 
-    def test1_creation(self):
+    def test_creation(self):
         """creating test product and
          check if existing name is equal to test str"""
 
@@ -30,14 +31,14 @@ class TestProductMethods(unittest.TestCase):
             self.product_id), api_key=API_KEY).json()['name']
         self.assertEqual(product_name, 'test_creating_prod_GooeeIOT')
 
-    def test2_list(self):
+    def test_list(self):
         """creating test product and
          check if list's length is equal to 1"""
 
         self.assertEqual(
             len(products.list_products(api_key=API_KEY).json()), 1)
 
-    def test3_update(self):
+    def test_update(self):
         """creating test product, update it and check,
         if product description is equal to what we expect"""
 
