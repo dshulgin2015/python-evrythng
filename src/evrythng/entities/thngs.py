@@ -79,3 +79,8 @@ def delete_device_thng(thng_id, api_key=None):
     assertions.datatype_str('thng_id', thng_id)
     url = '/auth/evrythng/thngs/{}'.format(thng_id)
     return utils.request('DELETE', url, api_key=api_key)
+
+def read_all_actions(thng_id, action_type='all', api_key=None):
+    assertions.datatype_str('thng_id', thng_id)
+    url = '/thngs/{}/actions/{}'.format(thng_id, action_type)
+    return utils.request('GET', url, api_key=api_key)
