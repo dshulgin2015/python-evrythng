@@ -8,7 +8,6 @@ API_KEY = os.environ['API_KEY']
 
 
 class TestProductMethods(unittest.TestCase):
-
     @classmethod
     def setUpClass(cls):
         """Product Tests Setup"""
@@ -52,7 +51,6 @@ class TestProductMethods(unittest.TestCase):
 
 
 class TestActionMethods(unittest.TestCase):
-
     @classmethod
     def setUpClass(cls):
         """Action Tests Setup"""
@@ -62,7 +60,7 @@ class TestActionMethods(unittest.TestCase):
         cls.action_id = actions.create_action(type_='scans',
                                               customFields={
                                                   'test_custom_Field': 'test_value'},
-                                        product=str(cls.product_id), api_key=API_KEY).json()['id']
+                                              product=str(cls.product_id), api_key=API_KEY).json()['id']
 
     @classmethod
     def tearDownClass(cls):
