@@ -59,3 +59,8 @@ def delete_product(product_id, api_key=None):
     assertions.datatype_str('product_id', product_id)
     url = '/products/{}'.format(product_id)
     return utils.request('DELETE', url, api_key=api_key)
+
+def read_all_actions(product_id, action_type='all', api_key=None):
+    assertions.datatype_str('product_id', product_id)
+    url = '/products/{}/actions/{}'.format(product_id, action_type)
+    return utils.request('GET', url, api_key=api_key)
